@@ -15,7 +15,7 @@ proyecto-ml = "proyecto_ml.__main__:main"
 [tool.kedro]
 package_name = "proyecto_ml"
 project_name = "proyecto_ml"
-kedro_init_version = "0.19.11"
+kedro_init_version = "1.0.0"
 tools = "['None']"
 example_pipeline = "False"
 source_dir = "src"

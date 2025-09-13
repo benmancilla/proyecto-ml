@@ -1,113 +1,162 @@
 # proyecto_ml
 
-The `data` folder is not included in this repository.  
-To run the project, please download the required datasets from [link or source], and place them in the `data` directory:
+## Instalación
+
+1. Clona el repositorio:
+    ```
+    git clone https://github.com/tu_usuario/ev_machine.git
+    cd ev_machine/proyecto-ml
+    ```
+
+2. Instala las dependencias:
+    ```
+    pip install -r requirements.txt
+    ```
+
+3. Descarga los datasets requeridos y colócalos en la carpeta `data/` como se indica abajo.
+
+## Uso
+
+Para ejecutar el pipeline principal:
+```
+kedro run
+```
+
+Para visualizar el pipeline:
+```
+kedro viz
+```
+
+Para ejecutar los tests:
+```
+pytest
+```
+
+## Estructura de datos
+
+La carpeta `data` no está incluida en este repositorio.  
+Para ejecutar el proyecto, descarga los datasets requeridos desde la fuente correspondiente y colócalos en la carpeta `data` siguiendo la estructura:
 
 ```
 ev_machine/
 └── proyecto-ml/
     └── data/
-        └── your_dataset.csv
+        ├── 01_raw/
+        │   ├── df_Customers.csv
+        │   ├── df_OrderItems.csv
+        │   └── df_Orders.csv
+        ├── 02_intermediate/
+        ├── 03_primary/
+        ├── 04_feature/
+        ├── 05_model_input/
+        ├── 06_models/
+        ├── 07_model_output/
+        └── 08_reports/
 ```
 
-If you need help, contact [your email or contact info].
+> **Nota:** Si necesitas ayuda, contacta a [tu_email@dominio.com].
 
 [![Powered by Kedro](https://img.shields.io/badge/powered_by-kedro-ffc900?logo=kedro)](https://kedro.org)
 
-## Overview
+## Descripción general
 
-This is your new Kedro project, which was generated using `kedro 0.19.11`.
+Este es tu nuevo proyecto Kedro, generado con `kedro 0.19.11`.
 
-Take a look at the [Kedro documentation](https://docs.kedro.org) to get started.
+Consulta la [documentación de Kedro](https://docs.kedro.org) para comenzar.
 
-## Rules and guidelines
+## Reglas y buenas prácticas
 
-In order to get the best out of the template:
+- No elimines líneas del archivo `.gitignore` proporcionado.
+- Asegúrate de que tus resultados sean reproducibles siguiendo convenciones de ingeniería de datos.
+- No subas datos al repositorio.
+- No subas credenciales ni configuraciones locales. Mantén todo en `conf/local/`.
 
-* Don't remove any lines from the `.gitignore` file we provide
-* Make sure your results can be reproduced by following a data engineering convention
-* Don't commit data to your repository
-* Don't commit any credentials or your local configuration to your repository. Keep all your credentials and local configuration in `conf/local/`
+## Instalación de dependencias
 
-## How to install dependencies
+Declara las dependencias en `requirements.txt` para instalación con `pip`.
 
-Declare any dependencies in `requirements.txt` for `pip` installation.
-
-To install them, run:
+Para instalarlas, ejecuta:
 
 ```
 pip install -r requirements.txt
 ```
 
-## How to run your Kedro pipeline
+## Ejecución del pipeline Kedro
 
-You can run your Kedro project with:
+Puedes ejecutar el proyecto con:
 
 ```
 kedro run
 ```
 
-## How to test your Kedro project
+## Pruebas
 
-Have a look at the file `src/tests/test_run.py` for instructions on how to write your tests. You can run your tests as follows:
+Consulta el archivo `src/tests/test_run.py` para instrucciones sobre cómo escribir tus tests. Ejecuta las pruebas con:
 
 ```
 pytest
 ```
 
-You can configure the coverage threshold in your project's `pyproject.toml` file under the `[tool.coverage.report]` section.
+Puedes configurar el umbral de cobertura en el archivo `pyproject.toml` bajo la sección `[tool.coverage.report]`.
 
+## Dependencias del proyecto
 
-## Project dependencies
+Para ver y actualizar los requisitos de dependencias, usa `requirements.txt`. Instala los requisitos con:
 
-To see and update the dependency requirements for your project use `requirements.txt`. You can install the project requirements with `pip install -r requirements.txt`.
+```
+pip install -r requirements.txt
+```
 
-[Further information about project dependencies](https://docs.kedro.org/en/stable/kedro_project_setup/dependencies.html#project-specific-dependencies)
+[Más información sobre dependencias](https://docs.kedro.org/en/stable/kedro_project_setup/dependencies.html#project-specific-dependencies)
 
-## How to work with Kedro and notebooks
+## Uso de Kedro con notebooks
 
-> Note: Using `kedro jupyter` or `kedro ipython` to run your notebook provides these variables in scope: `context`, 'session', `catalog`, and `pipelines`.
+> Usando `kedro jupyter` o `kedro ipython` tendrás disponibles las variables: `context`, `session`, `catalog` y `pipelines`.
 >
-> Jupyter, JupyterLab, and IPython are already included in the project requirements by default, so once you have run `pip install -r requirements.txt` you will not need to take any extra steps before you use them.
+> Jupyter, JupyterLab e IPython están incluidos en los requisitos del proyecto. Tras instalar dependencias, puedes usarlos directamente.
 
 ### Jupyter
-To use Jupyter notebooks in your Kedro project, you need to install Jupyter:
+Instala Jupyter si no lo tienes:
 
 ```
 pip install jupyter
 ```
 
-After installing Jupyter, you can start a local notebook server:
+Inicia el servidor de notebooks:
 
 ```
 kedro jupyter notebook
 ```
 
 ### JupyterLab
-To use JupyterLab, you need to install it:
+Instala JupyterLab:
 
 ```
 pip install jupyterlab
 ```
 
-You can also start JupyterLab:
+Inicia JupyterLab:
 
 ```
 kedro jupyter lab
 ```
 
 ### IPython
-And if you want to run an IPython session:
+Para iniciar una sesión IPython:
 
 ```
 kedro ipython
 ```
 
-### How to ignore notebook output cells in `git`
-To automatically strip out all output cell contents before committing to `git`, you can use tools like [`nbstripout`](https://github.com/kynan/nbstripout). For example, you can add a hook in `.git/config` with `nbstripout --install`. This will run `nbstripout` before anything is committed to `git`.
+### Ignorar celdas de salida de notebooks en `git`
+Para eliminar automáticamente las salidas de las celdas antes de hacer commit, usa [`nbstripout`](https://github.com/kynan/nbstripout):
 
-> *Note:* Your output cells will be retained locally.
+```
+nbstripout --install
+```
 
-## Package your Kedro project
+> *Nota:* Las salidas se mantienen localmente.
 
-[Further information about building project documentation and packaging your project](https://docs.kedro.org/en/stable/tutorial/package_a_project.html)
+## Empaquetar tu proyecto Kedro
+
+[Más información sobre documentación y empaquetado](https://docs.kedro.org/en/stable/tutorial/package_a_project.html)
