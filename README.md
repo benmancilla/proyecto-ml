@@ -1,5 +1,17 @@
 # proyecto_ml
 
+The `data` folder is not included in this repository.  
+To run the project, please download the required datasets from [link or source], and place them in the `data` directory:
+
+```
+ev_machine/
+└── proyecto-ml/
+    └── data/
+        └── your_dataset.csv
+```
+
+If you need help, contact [your email or contact info].
+
 [![Powered by Kedro](https://img.shields.io/badge/powered_by-kedro-ffc900?logo=kedro)](https://kedro.org)
 
 ## Overview
