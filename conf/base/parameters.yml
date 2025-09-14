@@ -1,0 +1,4 @@
+data_science:
+  max_rows: 10000
+  test_size: 0.2
+  random_state: 42

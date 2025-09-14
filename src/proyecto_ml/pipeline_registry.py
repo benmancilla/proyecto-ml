@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from kedro.pipeline import Pipeline
-from proyecto_ml.pipelines import data_preparation
+from proyecto_ml.pipelines import reporting
+from proyecto_ml.pipelines import data_science 
+from proyecto_ml.pipelines import data_engineering
 
 def register_pipelines() -> dict[str, Pipeline]:
     """Register the project's pipelines.
@@ -10,8 +12,8 @@ def register_pipelines() -> dict[str, Pipeline]:
         A mapping from pipeline names to ``Pipeline`` objects.
     """
     return {
-        "__default__": data_understanding.create_pipeline() + data_preparation.create_pipeline(),
-        "data_understanding": data_understanding.create_pipeline(),
-        "data_preparation": data_preparation.create_pipeline(),
+        "__default__": reporting.create_pipeline() + data_science.create_pipeline() + data_engineering.create_pipeline(),
+        "data_science": data_science.create_pipeline(),
+        "data_engineering": data_engineering.create_pipeline(),
+        "reporting": reporting.create_pipeline(),
     }
-from proyecto_ml.pipelines import data_preparation, data_understanding
