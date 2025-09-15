@@ -24,15 +24,15 @@ model_input:
 
 model_input_stats:
   type: pandas.CSVDataset
-  filepath: data/08_reporting/model_input_stats.csv
+  filepath: data/08_reports/model_input_stats.csv
 
 model_input_missing:
   type: pandas.CSVDataset
-  filepath: data/08_reporting/model_input_missing.csv
+  filepath: data/08_reports/model_input_missing.csv
 
 customers_by_state:
   type: pandas.CSVDataset
-  filepath: data/08_reporting/customers_by_state.csv
+  filepath: data/08_reports/customers_by_state.csv
 
 model_input_with_target:
   type: pandas.CSVDataset
