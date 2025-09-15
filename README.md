@@ -10,8 +10,8 @@ Proyecto Kedro para procesamiento y modelado de datos del dominio de pedidos/cli
 
 1. Clona el repositorio:
     ```
-    git clone https://github.com/tu_usuario/ev_machine.git
-    cd ev_machine/proyecto-ml
+    git clone https://github.com/benmancilla/proyecto-ml.git
+    cd /proyecto-ml
     ```
 
 2. Instala las dependencias:
