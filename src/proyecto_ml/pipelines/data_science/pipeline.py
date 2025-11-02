@@ -1,5 +1,12 @@
 from kedro.pipeline import Pipeline, node, pipeline
-from .nodes import add_loyalty_target, encode_features, split_data, train_model, evaluate_model
+from .nodes import (
+    add_loyalty_target,
+    encode_features,
+    split_data,
+    train_model,
+    evaluate_model,
+    model_delivery_tasks,
+)
 
 def create_pipeline(**kwargs) -> Pipeline:
     return pipeline([
@@ -32,5 +39,18 @@ def create_pipeline(**kwargs) -> Pipeline:
             inputs=["rf_model", "X_test", "y_test"],
             outputs="model_metrics",
             name="evaluate_model_node",
+        ),
+        # ---------
+        node(
+            func=model_delivery_tasks,
+            inputs=["model_input_with_target", "params:data_science"],
+            outputs=[
+                "regression_metrics",
+                "classification_metrics",
+                "classification_confusion_matrices",
+                "feature_importances",
+                "classification_feature_importances",
+            ],
+            name="model_delivery_tasks_node",
         ),
     ])

@@ -15,6 +15,9 @@ def clean_orders(orders: pd.DataFrame) -> pd.DataFrame:
         (orders["order_delivered_timestamp"] - orders["order_purchase_timestamp"]).dt.days
     )
     orders["order_year_month"] = orders["order_purchase_timestamp"].dt.to_period("M")
+    # Additional numeric splits for modeling
+    orders["order_year"] = orders["order_purchase_timestamp"].dt.year
+    orders["order_month"] = orders["order_purchase_timestamp"].dt.month
 
     return orders
 
@@ -40,10 +43,14 @@ def build_model_input(full_orders: pd.DataFrame) -> pd.DataFrame:
         "customer_id",
         "customer_city",
         "customer_state",
+        "customer_zip_code_prefix",
         "delivery_delay",
         "delivery_time",
         "order_year_month",
+        "order_year",
+        "order_month",
         "order_status",
+        "order_purchase_timestamp",
     ]
     model_input = model_input[keep_cols]
 

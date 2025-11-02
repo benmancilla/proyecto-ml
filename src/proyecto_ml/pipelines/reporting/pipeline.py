@@ -1,5 +1,11 @@
 from kedro.pipeline import Pipeline, node, pipeline
-from .nodes import describe_dataset, count_missing_values, distribution_by_state
+from .nodes import (
+    describe_dataset,
+    count_missing_values,
+    distribution_by_state,
+    compute_spearman_correlation,
+    compute_vif,
+)
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -21,5 +27,18 @@ def create_pipeline(**kwargs) -> Pipeline:
             inputs="customers_clean",
             outputs="customers_by_state",
             name="distribution_by_state_node",
+        ),
+        # New EDA nodes aligned with notebook 02
+        node(
+            func=compute_spearman_correlation,
+            inputs="model_input_with_target",
+            outputs="correlation_spearman",
+            name="compute_spearman_correlation_node",
+        ),
+        node(
+            func=compute_vif,
+            inputs="model_input_with_target",
+            outputs="vif_analysis",
+            name="compute_vif_node",
         ),
     ])

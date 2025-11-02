@@ -71,3 +71,111 @@ model_metrics:
 reference_data:
   type: pandas.ExcelDataset
   filepath: data/01_raw/reference_data.xlsx
+
+# New EDA outputs aligned with notebook 02
+correlation_spearman:
+  type: pandas.CSVDataset
+  filepath: data/08_reports/correlation_spearman.csv
+
+vif_analysis:
+  type: pandas.CSVDataset
+  filepath: data/08_reports/vif_analysis.csv
+
+# New modeling outputs aligned with notebook 04
+regression_metrics:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/regression_metrics.csv
+
+classification_metrics:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/classification_metrics.csv
+
+classification_confusion_matrices:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/classification_confusion_matrices.csv
+
+feature_importances:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/feature_importances.csv
+
+classification_feature_importances:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/classification_feature_importances.csv
+
+# New datasets for classification pipeline
+X_clf_train:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/X_clf_train.csv
+
+X_clf_test:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/X_clf_test.csv
+
+y_clf_train:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/y_clf_train.csv
+
+y_clf_test:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/y_clf_test.csv
+
+X_clf_train_scaled:
+  type: pickle.PickleDataset
+  filepath: data/05_model_input/X_clf_train_scaled.pkl
+
+X_clf_test_scaled:
+  type: pickle.PickleDataset
+  filepath: data/05_model_input/X_clf_test_scaled.pkl
+
+y_clf_train_prepared:
+  type: pickle.PickleDataset
+  filepath: data/05_model_input/y_clf_train_prepared.pkl
+
+y_clf_test_prepared:
+  type: pickle.PickleDataset
+  filepath: data/05_model_input/y_clf_test_prepared.pkl
+
+classification_metrics_extended:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/classification_metrics_extended.csv
+
+classification_confusion_matrices_extended:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/classification_confusion_matrices_extended.csv
+
+classification_feature_importances_extended:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/classification_feature_importances_extended.csv
+
+classification_trained_models:
+  type: pickle.PickleDataset
+  filepath: data/06_models/classification_trained_models.pkl
+
+# New datasets for regression pipeline
+X_train_scaled:
+  type: pickle.PickleDataset
+  filepath: data/05_model_input/X_train_scaled.pkl
+
+X_test_scaled:
+  type: pickle.PickleDataset
+  filepath: data/05_model_input/X_test_scaled.pkl
+
+y_train_prepared:
+  type: pickle.PickleDataset
+  filepath: data/05_model_input/y_train_prepared.pkl
+
+y_test_prepared:
+  type: pickle.PickleDataset
+  filepath: data/05_model_input/y_test_prepared.pkl
+
+regression_metrics_extended:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/regression_metrics_extended.csv
+
+regression_feature_importances_extended:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/regression_feature_importances_extended.csv
+
+regression_trained_models:
+  type: pickle.PickleDataset
+  filepath: data/06_models/regression_trained_models.pkl
