@@ -1,0 +1,4 @@
+model,tn,fp,fn,tp
+LogisticRegression,3013,256,22,206
+RandomForestClassifier,3203,66,62,166
+SVC,3039,230,19,209

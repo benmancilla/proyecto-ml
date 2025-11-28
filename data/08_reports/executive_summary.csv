@@ -1,0 +1,13 @@
+category,metric,value
+Unsupervised Learning,Mejor Algoritmo Clustering,gmm_k=6
+Unsupervised Learning,Silhouette Score,0.2686
+Unsupervised Learning,Número de Clusters,6
+Unsupervised Learning,Anomalías Detectadas,900 (9.00%)
+Supervised Learning,Mejor Modelo Regresión,RandomForest
+Supervised Learning,R² Score,1.0000
+Supervised Learning,Mejor Modelo Clasificación,GradientBoosting
+Supervised Learning,F1 Score,0.9621
+Data & Infrastructure,Total Muestras,"10,000"
+Data & Infrastructure,Features Originales,11
+Data & Infrastructure,Features con Clusters,23
+Data & Infrastructure,Pipelines Completados,"4 (Data Eng, Unsupervised, Supervised, Reporting)"

@@ -6,6 +6,7 @@ from proyecto_ml.pipelines import data_science
 from proyecto_ml.pipelines import data_engineering
 from proyecto_ml.pipelines import classification
 from proyecto_ml.pipelines import regression
+from proyecto_ml.pipelines import unsupervised_learning
 
 def register_pipelines() -> dict[str, Pipeline]:
     """Register the project's pipelines.
@@ -16,12 +17,14 @@ def register_pipelines() -> dict[str, Pipeline]:
     return {
         "__default__": (
             data_engineering.create_pipeline() + 
+            unsupervised_learning.create_pipeline() +
             data_science.create_pipeline() + 
             classification.create_pipeline() + 
             regression.create_pipeline() +
             reporting.create_pipeline()
         ),
         "data_engineering": data_engineering.create_pipeline(),
+        "unsupervised_learning": unsupervised_learning.create_pipeline(),
         "data_science": data_science.create_pipeline(),
         "classification": classification.create_pipeline(),
         "regression": regression.create_pipeline(),

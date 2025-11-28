@@ -92,6 +92,10 @@ stages:
       - data/03_primary/full_orders.csv
       - src/proyecto_ml/pipelines/data_science/
     outs:
+      - data/05_model_input/model_input_with_target_clusters.csv:
+          cache: true
+      - data/05_model_input/model_input_encoded.csv:
+          cache: true
       - data/06_models/rf_model.pkl:
           cache: true
     params:
@@ -112,3 +116,34 @@ stages:
           cache: false
       - data/07_model_output/classification_feature_importances.csv:
           cache: false
+
+  unsupervised_learning:
+    cmd: kedro run --pipeline=unsupervised_learning
+    deps:
+      - data/05_model_input/model_input.csv
+      - src/proyecto_ml/pipelines/unsupervised_learning/
+    outs:
+      - data/05_model_input/unsupervised_features.csv:
+          cache: true
+      - data/05_model_input/cluster_labels.csv:
+          cache: true
+      - data/05_model_input/model_input_with_clusters.csv:
+          cache: true
+      - data/06_models/clustering_models.pkl:
+          cache: true
+      - data/07_model_output/clustering_metrics.csv:
+          cache: true
+      - data/07_model_output/clustering_elbow.csv:
+          cache: true
+      - data/07_model_output/anomaly_scores.csv:
+          cache: true
+      - data/08_reports/pca_embedding.csv:
+          cache: true
+      - data/08_reports/pca_explained_variance.csv:
+          cache: true
+      - data/08_reports/tsne_embedding.csv:
+          cache: true
+      - data/08_reports/umap_embedding.csv:
+          cache: true
+      - data/08_reports/cluster_profiles.csv:
+          cache: true

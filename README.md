@@ -2,7 +2,7 @@
 
 (admin - admin) <-- credenciales airflow ui
 
-https://drive.google.com/file/d/10cF-siIP8vxZaxebEAVBVGos25U1H-7E/view?usp=sharing --> video
+https://drive.google.com/file/d/10cF-siIP8vxZaxebEAVBVGos25U1H-7E/view?usp=sharing --> video 1
 https://drive.google.com/file/d/1oNnQrc7Pza0fVT0dJcCD-V4Y7VZduKJY/view?usp=sharing --> video 2
 
 Proyecto Kedro para procesamiento y modelado de datos del dominio de pedidos/clientes, implementando etapas de CRISP-DM (comprensión de datos, preparación, modelado) y reportes reproducibles. Este README reúne los pasos y comandos clave para ponerlo en marcha rápidamente en Windows (PowerShell) y fusiona la guía de ejecución, DVC y Airflow.

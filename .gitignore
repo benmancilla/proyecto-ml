@@ -9,11 +9,23 @@ conf/local/**
 # ignore potentially sensitive credentials files
 conf/**/*credentials*
 
-# ignore everything in the following folders
+# ignore everything in the following folders (default)
 data/**
 
-# except their sub-folders
+# except their sub-folders (keep folder structure)
 !data/**/
+
+# and except common data artifacts to version
+!data/**/*.csv
+!data/**/*.parquet
+!data/**/*.json
+!data/**/*.txt
+!data/**/*.xlsx
+!data/**/*.feather
+!data/**/*.png
+!data/**/*.jpg
+!data/**/*.jpeg
+!data/**/*.svg
 
 # also keep all .gitkeep files
 !.gitkeep

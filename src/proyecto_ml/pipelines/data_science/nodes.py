@@ -62,6 +62,25 @@ def add_loyalty_target(full_orders: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def merge_cluster_features(df: pd.DataFrame, cluster_labels: pd.DataFrame) -> pd.DataFrame:
+    """
+    Append unsupervised cluster labels to the supervised dataset for feature engineering.
+
+    Args:
+        df: DataFrame with target already added.
+        cluster_labels: DataFrame with cluster columns aligned by index.
+
+    Returns:
+        DataFrame with new cluster features included.
+    """
+    aligned = cluster_labels.reindex(df.index)
+    merged = df.copy()
+    for col in aligned.columns:
+        merged[col] = aligned[col].fillna(-1)
+    logger.info("Merged cluster features: %s", list(aligned.columns))
+    return merged
+
+
 # 2. Encode categorical features
 def encode_features(df: pd.DataFrame) -> pd.DataFrame:
     """

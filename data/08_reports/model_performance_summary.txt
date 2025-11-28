@@ -1,0 +1,2 @@
+Mejor modelo regresión: GradientBoosting (RMSE: 6.23)
+Mejor modelo clasificación: RandomForestClassifier (F1: 0.745)
